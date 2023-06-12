@@ -3,8 +3,8 @@ import {
     FilesetResolver
 } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
 
-const passcode = [1,2,3,4];
-const passcheck = []
+const passcode = [1, 2, 3, 4];
+let passcheck = []
 let handLandmarker = undefined;
 let runningMode = "IMAGE";
 let webcamRunning = false;
@@ -27,8 +27,6 @@ const createHandLandmarker = async () => {
 
 };
 createHandLandmarker();
-
-
 
 
 const video = document.getElementById("webcam");
@@ -54,10 +52,10 @@ function enableCam(event) {
 
     if (webcamRunning === true) {
         webcamRunning = false;
-        enableWebcamButton.innerText = "ENABLE PREDICTIONS";
+        enableWebcamButton.innerText = "CAMERA ENABLED";
     } else {
         webcamRunning = true;
-        enableWebcamButton.innerText = "DISABLE PREDICTIONS";
+        enableWebcamButton.innerText = "CAMERA ENABLED";
     }
 
     // getUsermedia parameters.
@@ -76,10 +74,11 @@ function enableCam(event) {
 
 let lastVideoTime = -1;
 let results = undefined;
-let count =0;
-let prev =1;
+let count = 0;
+let prev = 1;
 
 const tipids = [4, 8, 12, 16, 20];
+
 async function predictWebcam() {
     canvasElement.style.width = video.videoWidth;
     canvasElement.style.height = video.videoHeight;
@@ -89,7 +88,7 @@ async function predictWebcam() {
     // Now let's start detecting the stream.
     if (runningMode === "IMAGE") {
         runningMode = "VIDEO";
-        await handLandmarker.setOptions({ runningMode: "VIDEO" });
+        await handLandmarker.setOptions({runningMode: "VIDEO"});
     }
     let startTimeMs = performance.now();
     if (lastVideoTime !== video.currentTime) {
@@ -99,7 +98,6 @@ async function predictWebcam() {
 
     canvasCtx.save();
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
-
 
 
     if (results.landmarks) {
@@ -113,15 +111,14 @@ async function predictWebcam() {
 
             drawLandmarks(canvasCtx, landmarks, {color: "#FF0000", lineWidth: 2});
         }
-        let lmlist=[]
-        if(lmlist1.length!==0) {
+        let lmlist = []
+        if (lmlist1.length !== 0) {
             lmlist = lmlist1[0];
 
         }
 
         const fingerlist = [];
         if (lmlist.length !== 0 && lmlist.length === 21) {
-
 
 
             if (lmlist[12].x > lmlist[20].x) {
@@ -150,20 +147,20 @@ async function predictWebcam() {
         }
         // console.log(fingerlist)
 
-        let ones = fingerlist.filter(function (num){
-            return num ===1
+        let ones = fingerlist.filter(function (num) {
+            return num === 1
         })
         let num = ones.length
-        if(num>0){
-            if(prev===num){
-                count +=1
-            }else{
-                count=0
+        if (num > 0) {
+            if (prev === num) {
+                count += 1
+            } else {
+                count = 0
                 prev = num
             }
         }
-        if(count>=50){
-            count=0
+        if (count >= 50) {
+            count = 0
             addKey(num)
         }
 
@@ -178,20 +175,53 @@ async function predictWebcam() {
 }
 
 
-const addKey = (dig)=>{
-    let passlength = passcheck.length
-    let oglength = passcode.length
-    if(passlength!==0 && passlength<oglength ){
-        if(dig!==passcheck[passlength-1]){
+const addKey = (dig) => {
+    let passlength = passcheck.length;
+    let oglength = passcode.length;
+    render()
+    if (passlength !== 0 && passlength < oglength) {
+        if (dig !== passcheck[passlength - 1]) {
             passcheck.push(dig)
         }
 
-    }else if(passlength===0){
+    } else if (passlength === 0) {
         passcheck.push(dig)
-    }
-    else if(JSON.stringify(passcheck) === JSON.stringify(passcode)){
-        console.log("----------------------you did it----------------------------")
+    } else {
+        if (JSON.stringify(passcheck) === JSON.stringify(passcode)) {
+        console.log("----------------------you did it----------------------------");
+        displayoutputs(1);
+    }else{
+            displayoutputs(0);
+        }
     }
     console.log(passcheck)
+}
 
+
+//----------------------------render
+
+
+let password_container = document.getElementById("password_container");
+const reset_btn = document.getElementById("reset_button");
+const result_message = document.getElementById("result_message");
+
+const render =()=>{
+    password_container.innerHTML="";
+    for(let i =0;i<passcheck.length;i++){
+        password_container.innerHTML+=passcheck[i];
+    }
+}
+
+reset_btn.addEventListener("click",()=>{
+    passcheck=[];
+    console.log("a")
+    render()
+})
+
+const displayoutputs=(res)=>{
+    if(res===1){
+        result_message.innerHTML="Password Correct";
+    }else{
+        result_message.innerHTML="Password Wrong";
+    }
 }
