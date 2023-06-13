@@ -1,4 +1,4 @@
-# GestureAIlock-MachineLearning_Powered_Hand_Gesture_Password_Detection
+# Gesturelock-Hand_Gesture_Password_Detection
 
 **GestureLock**  is a web application that utilizes MediaPipe ML library to detect hand landmarks and process them to identify the gestures displayed. It offers a secure and innovative approach to password authentication by replacing traditional alphanumeric passwords with hand gestures.
 
