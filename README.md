@@ -25,11 +25,11 @@ To learn more about MediaPipe ML and its features, visit [the MediaPipe ML websi
 
 ## Working screenshots
 
+![ss1](https://github.com/RahulKrishna-A/GestureAIlock-MachineLearning_Powered_Hand_Gesture_Password_Detection/assets/109454528/e7cb75e6-8213-4183-a599-c2dd23d33a8d)
+
 ![ss-2](https://github.com/RahulKrishna-A/GestureAIlock-MachineLearning_Powered_Hand_Gesture_Password_Detection/assets/109454528/ea7f74f6-511b-4f69-899c-386eb17e6d73)
 
 ![ss-3](https://github.com/RahulKrishna-A/GestureAIlock-MachineLearning_Powered_Hand_Gesture_Password_Detection/assets/109454528/d94eb007-0016-40ba-80db-9d9984731e4a)
-
-![ss1](https://github.com/RahulKrishna-A/GestureAIlock-MachineLearning_Powered_Hand_Gesture_Password_Detection/assets/109454528/e7cb75e6-8213-4183-a599-c2dd23d33a8d)
 
 
 ## Live Demo
