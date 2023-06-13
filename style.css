@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -6,23 +6,23 @@
 
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     overflow-x: hidden;
     overflow-y: overlay;
-
 }
-#main__container{
+
+#main__container {
     height: 100vh;
     width: 100vw;
     background-color: black;
-   /*border-bottom: 1px solid rgba(255, 255, 255, 0.58);*/
+    /*border-bottom: 1px solid rgba(255, 255, 255, 0.58);*/
 }
 
-#main__nav{
+#main__nav {
     font-family: 'Orbit', sans-serif;
     height: 6.5vh;
     /*background-color: red;*/
@@ -33,13 +33,13 @@ body{
     box-shadow: -2px -2px 2px 2px white;
 }
 
-#main__hero{
+#main__hero {
     display: flex;
     height: 93.5vh;
     /*background-color: blue;*/
 }
 
-#main__hero-left{
+#main__hero-left {
     width: 50vw;
     /*background-color: green;*/
     margin-top: 20vh;
@@ -48,40 +48,57 @@ body{
 
 }
 
-.hero_header{
+.hero_header {
     font-weight: 800;
     font-size: 3rem;
 
 }
-.hero_text{
+
+.hero_text {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-.hero_text p{
+
+.hero_text p {
     color: rgba(240, 240, 240, 0.69);
 }
-#try_now_btn{
+
+#try_now_btn {
     height: 2rem;
     width: 5rem;
     color: black;
-    background-color: rgba(30,253,169,0.83);
+    background-color: rgba(30, 253, 169, 0.83);
     font-weight: 600;
     outline: none;
     border: none;
 }
-#try_now_btn:hover,#webcamButton:hover{
+
+#try_now_btn:hover, #webcamButton:hover {
     scale: 1.08;
 }
 
-#webcamt {
-    transform: scaleX(-1);
-    width: 640px;
-    height: 480px;
+/*#webcamt {*/
+/*    transform: scaleX(-1);*/
+/*    width: 640px;*/
+/*    height: 480px;*/
+/*}*/
+/*------------------------------------------right-header-----------------------------*/
+#main__hero-right {
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 16vh;
+}
+
+#main_hero-svg {
+    height: 22rem;
+    width: 22rem;
+
 }
 
 /*----------------------------main workspace-------------------------------------------*/
 
-#main_workspace{
+#main_workspace {
     height: 100vh;
     width: 100vw;
     background-color: black;
@@ -92,48 +109,49 @@ body{
 }
 
 
-
-#main_workspace_text{
-    margin-top:10vh;
+#main_workspace_text {
+    margin-top: 10vh;
 }
-#main_workspace_text h2{
+
+#main_workspace_text h2 {
     margin-bottom: 1rem;
     color: rgba(30, 253, 169, 0.8);
 }
 
-#webcamButton{
+#webcamButton {
     height: 2rem;
     width: 10rem;
     color: black;
-    background-color: rgba(30,253,169,0.83);
+    background-color: rgba(30, 253, 169, 0.83);
     font-weight: 600;
     outline: none;
     border: none;
-    margin-top:1rem ;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-video,canvas{
+video, canvas {
     height: 50vh;
 }
 
 /*------------------------------live_view--------------------------------*/
-#liveView{
+#liveView {
     display: flex;
 }
 
-#live_view_left{
+#live_view_left {
     width: 50vw;
 }
 
-#live_view_right{
+#live_view_right {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
     width: 40vw;
+    margin-top: 15vh;
 }
 
-#password_container{
+#password_container {
     /*display: flex;*/
     height: 4rem;
     width: 12rem;
@@ -144,30 +162,67 @@ video,canvas{
     font-weight: 800;
     font-family: 'Orbitron', sans-serif;
     border: 2px solid rgba(220, 234, 230, 0.83);
+    padding-left: 0.5rem;
 }
 
-#reset_button{
+#reset_button {
     height: 2rem;
     width: 5rem;
     color: black;
-    background-color: rgba(30,253,169,0.83);
+    background-color: rgba(30, 253, 169, 0.83);
     font-weight: 600;
     outline: none;
     border: none;
-    margin-top:1rem ;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-#reset_button:hover{
+#reset_button:hover {
     scale: 1.05;
 }
+
 /*-----------------result----------------*/
 
-#result_message{
+#result_message {
     position: absolute;
     bottom: 50px;
     font-size: 2rem;
     left: 40vw;
     font-weight: 700;
 
+}
+
+/*----------Author--------------*/
+#author_space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    font-family: 'Prompt', sans-serif;
+    height: 2.5rem;
+}
+
+#author_space a {
+    color: black;
+}
+
+#heart {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#heart:hover {
+    animation: beating 1s infinite;
+}
+
+@keyframes beating {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.2;
+    }
+    100% {
+        scale: 1;
+    }
 }

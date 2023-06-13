@@ -159,7 +159,7 @@ async function predictWebcam() {
                 prev = num
             }
         }
-        if (count >= 50) {
+        if (count >= 20) {
             count = 0
             addKey(num)
         }
@@ -188,13 +188,13 @@ const addKey = (dig) => {
         passcheck.push(dig)
     } else {
         if (JSON.stringify(passcheck) === JSON.stringify(passcode)) {
-        console.log("----------------------you did it----------------------------");
-        displayoutputs(1);
-    }else{
+            console.log("----------------------you did it----------------------------");
+            displayoutputs(1);
+        } else {
             displayoutputs(0);
         }
     }
-    console.log(passcheck)
+    // console.log(passcheck)
 }
 
 
@@ -205,23 +205,24 @@ let password_container = document.getElementById("password_container");
 const reset_btn = document.getElementById("reset_button");
 const result_message = document.getElementById("result_message");
 
-const render =()=>{
-    password_container.innerHTML="";
-    for(let i =0;i<passcheck.length;i++){
-        password_container.innerHTML+=passcheck[i];
+const render = () => {
+    password_container.innerHTML = "";
+    for (let i = 0; i < passcheck.length; i++) {
+        password_container.innerHTML += passcheck[i];
     }
 }
 
-reset_btn.addEventListener("click",()=>{
-    passcheck=[];
-    console.log("a")
-    render()
+reset_btn.addEventListener("click", () => {
+    passcheck = [];
+    // console.log("a")
+    render();
+    result_message.innerHTML="";
 })
 
-const displayoutputs=(res)=>{
-    if(res===1){
-        result_message.innerHTML="Password Correct";
-    }else{
-        result_message.innerHTML="Password Wrong";
+const displayoutputs = (res) => {
+    if (res === 1) {
+        result_message.innerHTML = "Password Correct";
+    } else {
+        result_message.innerHTML = "Password Wrong";
     }
 }
