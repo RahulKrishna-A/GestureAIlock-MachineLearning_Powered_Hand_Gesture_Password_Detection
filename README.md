@@ -16,7 +16,7 @@ MediaPipe is google's Library which provides pre-trained models, algorithms, and
 To learn more about MediaPipe ML and its features, visit [the MediaPipe ML website.](https://developers.google.com/mediapipe)
 
 ## Technologies Used
-
+ 
 - HTML5
 - CSS3
 - JavaScript
